@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aarranz- <aarranz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/26 12:55:30 by arranz            #+#    #+#             */
-/*   Updated: 2023/05/26 13:26:54 by aarranz-         ###   ########.fr       */
+/*   Created: 2023/05/18 12:25:41 by aarranz-          #+#    #+#             */
+/*   Updated: 2023/05/26 13:54:51 by aarranz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned char	*str;
-	size_t			i;
+	char	*str;
+	size_t	i;
 
 	i = 0;
-	str = (unsigned char *)s;
-	while (i < n)
+	if (!s && !f)
+		return (NULL);
+	str = malloc(sizeof(char) * ft_strlen(s) + 1);
+	if (!str)
+		return (NULL);
+	while (s[i])
 	{
-		if (str[i] == (unsigned char)c)
-			return (&str[i]);
+		str[i] = f (i, s[i]);
 		i++;
 	}
-	return (NULL);
+	str[i] = '\0';
+	return (str);
 }
-
-/*int	main(void)
-{
-	printf("%s", ft_memchr("bonjour", 'o', 2));
-}*/

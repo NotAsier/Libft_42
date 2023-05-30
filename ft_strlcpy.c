@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aarranz- <aarranz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/26 12:55:30 by arranz            #+#    #+#             */
-/*   Updated: 2023/05/26 13:26:54 by aarranz-         ###   ########.fr       */
+/*   Created: 2023/04/19 11:50:03 by aarranz-          #+#    #+#             */
+/*   Updated: 2023/05/08 11:43:58 by aarranz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	unsigned char	*str;
-	size_t			i;
+	size_t	i;
+	size_t	j;
 
-	i = 0;
-	str = (unsigned char *)s;
-	while (i < n)
+	j = ft_strlen(src);
+	if (dstsize == 0)
 	{
-		if (str[i] == (unsigned char)c)
-			return (&str[i]);
+		return (j);
+	}
+	i = 0;
+	while (src[i] != '\0' && i < dstsize -1)
+	{
+		dst[i] = src[i];
 		i++;
 	}
-	return (NULL);
+	dst[i] = '\0';
+	return (j);
 }
 
 /*int	main(void)
 {
-	printf("%s", ft_memchr("bonjour", 'o', 2));
+	printf("%zu", ft_strlcpy("asier12345", " arranz", 4));
 }*/

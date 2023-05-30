@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aarranz- <aarranz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/26 12:55:30 by arranz            #+#    #+#             */
-/*   Updated: 2023/05/26 13:26:54 by aarranz-         ###   ########.fr       */
+/*   Created: 2023/04/18 15:39:41 by aarranz-          #+#    #+#             */
+/*   Updated: 2023/05/08 14:19:41 by aarranz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	unsigned char	*str;
-	size_t			i;
+	size_t	cont;
 
-	i = 0;
-	str = (unsigned char *)s;
-	while (i < n)
+	if (dst == NULL && src == NULL)
+		return (NULL);
+	cont = 0;
+	while (cont < n)
 	{
-		if (str[i] == (unsigned char)c)
-			return (&str[i]);
-		i++;
+		((char *)dst)[cont] = ((char *)src)[cont];
+		cont++;
 	}
-	return (NULL);
+	return (dst);
 }
 
 /*int	main(void)
 {
-	printf("%s", ft_memchr("bonjour", 'o', 2));
+	char src[25] = "Esta es la funcion memcpy";
+	char *dst;
+
+	printf("%d", ft_memcpy(dst, src,  8));
 }*/

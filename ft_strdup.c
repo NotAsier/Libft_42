@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aarranz- <aarranz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/26 12:55:30 by arranz            #+#    #+#             */
-/*   Updated: 2023/05/26 13:26:54 by aarranz-         ###   ########.fr       */
+/*   Created: 2023/05/09 08:18:54 by aarranz-          #+#    #+#             */
+/*   Updated: 2023/05/11 10:45:48 by aarranz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strdup(const char *s1)
 {
-	unsigned char	*str;
-	size_t			i;
+	char	*str;
+	size_t	i;
+	size_t	len;	
 
 	i = 0;
-	str = (unsigned char *)s;
-	while (i < n)
+	len = ft_strlen(s1);
+	str = malloc(sizeof(char) * len + 1);
+	if (str == NULL)
+		return (NULL);
+	while (s1[i] != '\0')
 	{
-		if (str[i] == (unsigned char)c)
-			return (&str[i]);
+		str[i] = s1[i];
 		i++;
 	}
-	return (NULL);
+	str[i] = s1[i];
+	return (str);
 }
 
 /*int	main(void)
 {
-	printf("%s", ft_memchr("bonjour", 'o', 2));
+	printf("%s", ft_strdup("as"));
 }*/

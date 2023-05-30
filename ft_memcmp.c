@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aarranz- <aarranz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/26 12:55:30 by arranz            #+#    #+#             */
-/*   Updated: 2023/05/26 13:26:54 by aarranz-         ###   ########.fr       */
+/*   Created: 2023/04/27 11:22:12 by aarranz-          #+#    #+#             */
+/*   Updated: 2023/05/08 14:05:17 by aarranz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	unsigned char	*str;
-	size_t			i;
+	char	*str1;
+	char	*str2;
 
-	i = 0;
-	str = (unsigned char *)s;
-	while (i < n)
+	str1 = (char *)s1;
+	str2 = (char *)s2;
+	while (n--)
 	{
-		if (str[i] == (unsigned char)c)
-			return (&str[i]);
-		i++;
+		if (*str1 != *str2)
+			return ((unsigned char)*str1 - (unsigned char)*str2);
+		str1++;
+		str2++;
 	}
-	return (NULL);
+	return (0);
 }
 
 /*int	main(void)
 {
-	printf("%s", ft_memchr("bonjour", 'o', 2));
+	printf("%d", ft_memcmp("Asier", "Assier", 2));
 }*/
