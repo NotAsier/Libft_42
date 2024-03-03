@@ -6,7 +6,7 @@
 /*   By: aarranz- <aarranz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 13:35:03 by aarranz-          #+#    #+#             */
-/*   Updated: 2023/05/08 16:34:00 by aarranz-         ###   ########.fr       */
+/*   Updated: 2024/03/03 21:57:13 by aarranz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void	ft_bzero(void *s, size_t n)
 		dest[i] = '\0';
 		i++;
 	}
-	return (*s);
 }
 
 /*int	main(void)

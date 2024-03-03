@@ -6,7 +6,7 @@
 /*   By: aarranz- <aarranz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 11:49:50 by aarranz-          #+#    #+#             */
-/*   Updated: 2023/05/26 11:30:24 by aarranz-         ###   ########.fr       */
+/*   Updated: 2024/03/03 21:57:37 by aarranz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <stdint.h>
 
 typedef struct s_list
 {

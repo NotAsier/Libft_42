@@ -6,7 +6,7 @@
 /*   By: aarranz- <aarranz-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:23:07 by aarranz-          #+#    #+#             */
-/*   Updated: 2023/05/26 14:05:45 by aarranz-         ###   ########.fr       */
+/*   Updated: 2024/03/03 21:57:01 by aarranz-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,11 @@ static char	conpare_right(char *str, char *set)
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*str;
-	size_t	len;
 	size_t	i;
 	size_t	i2;
 
 	if (!s1 || !set)
 		return (NULL);
-	len = ft_strlen(s1) + 1;
 	i = conpare_left((char *)s1, (char *)set);
 	i2 = conpare_right((char *)s1, (char *)set);
 	str = ft_substr(s1, i, i2 - i);
